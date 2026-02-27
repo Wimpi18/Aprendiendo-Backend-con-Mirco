@@ -1,0 +1,26 @@
+# --- Artefactos de .NET ---
+[Bb]in/
+[Oo]bj/
+
+# --- Archivos de usuario y herramientas ---
+*.user
+*.userosscache
+*.sln.docuser
+
+# --- VS Code ---
+.vscode/
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+
+# --- Visual Studio ---
+.vs/
+[Tt]est[Rr]esults/
+
+# --- Paquetes de NuGet ---
+*.nupkg
+**/packages/*
+!**/packages/build/
+
+# --- ASP.NET Core ---
+appsettings.Development.json
