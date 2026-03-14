@@ -11,4 +11,12 @@ public class RegisterSystem
     {
         registerInterface.Register();
     }
+
+    public void SetStrategy(IRegisterInterface strategy)
+    {
+        if (strategy != null)
+        {
+            this.registerInterface = strategy;
+        }
+    }
 }
