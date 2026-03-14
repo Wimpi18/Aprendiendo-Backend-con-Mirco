@@ -7,9 +7,9 @@ public class RegisterSystem
         this.registerInterface = registerInterface;
     }
 
-    public void Register()
+    public (bool isSuccess, string message) Register()
     {
-        registerInterface.Register();
+        return registerInterface.Register();
     }
 
     public void SetStrategy(IRegisterInterface strategy)

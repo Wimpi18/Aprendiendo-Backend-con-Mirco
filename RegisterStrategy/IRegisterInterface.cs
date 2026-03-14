@@ -2,5 +2,5 @@ using System.Collections;
 
 public interface IRegisterInterface
 {
-    void Register();
+    (bool isSuccess, string message) Register();
 }

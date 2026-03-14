@@ -7,8 +7,9 @@ public class InvitedRegister : IRegisterInterface
 
     }
 
-    public void Register()
+    public (bool isSuccess, string message) Register()
     {
         Console.Write("Registrando usuario como invitado");
+        return (true, "Usuario invitado registrado correctamente");
     }
 }

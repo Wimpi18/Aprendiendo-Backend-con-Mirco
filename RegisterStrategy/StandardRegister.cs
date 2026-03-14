@@ -10,8 +10,9 @@ public class StandardRegister : IRegisterInterface
         this.password = password;
     }
 
-    public void Register()
+    public (bool isSuccess, string message) Register()
     {
         Console.Write("Registrando usuario con email " + email + " y password " + password);
+        return (true, "Usuario registrado de manera estandar correctamente");
     }
 }

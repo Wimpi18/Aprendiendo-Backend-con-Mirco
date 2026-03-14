@@ -8,8 +8,10 @@ public class GoogleRegister : IRegisterInterface
         this.token = token;
     }
 
-    public void Register()
+    public (bool isSuccess, string message) Register()
     {
+
         Console.Write("Registrando usuario con Google y el token " + token);
+        return (true, "Usuario registrado con Google correctamente");
     }
 }
