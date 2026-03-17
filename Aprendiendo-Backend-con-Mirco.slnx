@@ -1,5 +1,6 @@
 <Solution>
   <Project Path="Chain-of-Responsability-Handler-Levels/Chain-of-Responsability-Handler-Levels.csproj" />
+  <Project Path="Loan-Bank-Facade/Loan-Bank-Facade.csproj" />
   <Project Path="RegisterStrategy/RegisterStrategy.csproj" />
   <Project Path="Singleton-Logger/Singleton-Logger.csproj" />
 </Solution>
