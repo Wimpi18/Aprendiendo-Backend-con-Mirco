@@ -2,10 +2,7 @@ using System.Collections;
 
 public class InvitedRegister : IRegisterInterface
 {
-    public InvitedRegister()
-    {
-
-    }
+    public InvitedRegister() { }
 
     public (bool isSuccess, string message) Register()
     {
