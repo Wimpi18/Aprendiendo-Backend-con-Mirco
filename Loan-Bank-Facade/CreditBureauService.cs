@@ -2,7 +2,7 @@ namespace LoanBankFacade;
 
 public class CreditBureauService
 {
-    public int GetCreditScore(string customerId)
+    public async Task<int> GetCreditScoreAsync(string customerId)
     {
         Console.WriteLine(
             $"[CreditBureau] Consultando puntaje crediticio externo para {customerId}..."

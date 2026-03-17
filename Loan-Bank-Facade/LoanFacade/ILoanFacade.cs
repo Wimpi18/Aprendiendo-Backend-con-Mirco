@@ -1,4 +1,4 @@
 public interface ILoanFacade
 {
-    bool LoanApply(string customerId, decimal loanAmount);
+    Task<bool> LoanApply(string customerId, decimal loanAmount);
 }

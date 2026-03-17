@@ -20,7 +20,7 @@ public class LoanFacade : ILoanFacade
         this.riskAssessmentEngine = riskAssessmentEngine;
     }
 
-    public bool LoanApply(string customerId, decimal loanAmount)
+    public async Task<bool> LoanApply(string customerId, decimal loanAmount)
     {
         bool verifyIdentity = customerIdentityService.VerifyIdentity(customerId);
         if (!verifyIdentity)
@@ -32,7 +32,7 @@ public class LoanFacade : ILoanFacade
 
         return riskAssessmentEngine.EvaluateRisk(
             verifyIdentity,
-            creditBureauService.GetCreditScore(customerId),
+            await creditBureauService.GetCreditScoreAsync(customerId),
             hasNoUnpaidDebts,
             loanAmount
         );
