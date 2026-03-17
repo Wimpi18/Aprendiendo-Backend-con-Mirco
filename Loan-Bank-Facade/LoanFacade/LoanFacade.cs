@@ -22,10 +22,18 @@ public class LoanFacade : ILoanFacade
 
     public bool LoanApply(string customerId, decimal loanAmount)
     {
+        bool verifyIdentity = customerIdentityService.VerifyIdentity(customerId);
+        if (!verifyIdentity)
+            return false;
+
+        bool hasNoUnpaidDebts = internalAccountService.HasNoUnpaidDebts(customerId);
+        if (!hasNoUnpaidDebts)
+            return false;
+
         return riskAssessmentEngine.EvaluateRisk(
-            customerIdentityService.VerifyIdentity(customerId),
+            verifyIdentity,
             creditBureauService.GetCreditScore(customerId),
-            internalAccountService.HasNoUnpaidDebts(customerId),
+            hasNoUnpaidDebts,
             loanAmount
         );
     }
