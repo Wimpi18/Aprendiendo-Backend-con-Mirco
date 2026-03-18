@@ -2,38 +2,27 @@ using LoanBankFacade;
 
 public class LoanFacade : ILoanFacade
 {
-    private CustomerIdentityService customerIdentityService;
-    private CreditBureauService creditBureauService;
-    private InternalAccountService internalAccountService;
     private RiskAssessmentEngine riskAssessmentEngine;
+    private ICustomerBackgroundFacade customerBackgroundFacade;
 
     public LoanFacade(
-        CustomerIdentityService customerIdentityService,
-        CreditBureauService creditBureauService,
-        InternalAccountService internalAccountService,
-        RiskAssessmentEngine riskAssessmentEngine
+        RiskAssessmentEngine riskAssessmentEngine,
+        ICustomerBackgroundFacade customerBackgroundFacade
     )
     {
-        this.customerIdentityService = customerIdentityService;
-        this.creditBureauService = creditBureauService;
-        this.internalAccountService = internalAccountService;
         this.riskAssessmentEngine = riskAssessmentEngine;
+        this.customerBackgroundFacade = customerBackgroundFacade;
     }
 
     public async Task<bool> LoanApply(string customerId, decimal loanAmount)
     {
-        bool verifyIdentity = customerIdentityService.VerifyIdentity(customerId);
-        if (!verifyIdentity)
-            return false;
-
-        bool hasNoUnpaidDebts = internalAccountService.HasNoUnpaidDebts(customerId);
-        if (!hasNoUnpaidDebts)
-            return false;
-
+        (bool passedFilters, int creditScore) = await customerBackgroundFacade.CheckBackgroundAsync(
+            customerId
+        );
         return riskAssessmentEngine.EvaluateRisk(
-            verifyIdentity,
-            await creditBureauService.GetCreditScoreAsync(customerId),
-            hasNoUnpaidDebts,
+            passedFilters,
+            creditScore,
+            passedFilters,
             loanAmount
         );
     }
