@@ -1,10 +1,8 @@
-﻿public class SqlQueryBuilder
+﻿public class SqlQueryBuilder : QueryBuilder
 {
     string _table = "",
         _columns = "",
         _where = "";
-
-    public SqlQueryBuilder() { }
 
     public void SetTable(string tableName)
     {

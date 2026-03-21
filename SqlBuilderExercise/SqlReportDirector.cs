@@ -1,23 +1,19 @@
 ﻿public class SqlReportDirector
 {
-    public SqlQuery BuildActiveUsersReport()
+    public void BuildActiveUsersReport(QueryBuilder queryBuilder)
     {
-        SqlQueryBuilder builder = new SqlQueryBuilder();
-        builder.SetTable("Usuarios");
-        builder.AddColumn("Nombre");
-        builder.AddColumn("Email");
-        builder.AddWhere("Estado = 'Activo'");
-        return builder.Build();
+        queryBuilder.SetTable("Usuarios");
+        queryBuilder.AddColumn("Nombre");
+        queryBuilder.AddColumn("Email");
+        queryBuilder.AddWhere("Estado = 'Activo'");
     }
 
-    public SqlQuery BuildHighValueSalesReport()
+    public void BuildHighValueSalesReport(QueryBuilder queryBuilder)
     {
-        SqlQueryBuilder builder = new SqlQueryBuilder();
-        builder.SetTable("Ventas");
-        builder.AddColumn("Id");
-        builder.AddColumn("Total");
-        builder.AddColumn("Fecha");
-        builder.AddWhere("Total > 10000");
-        return builder.Build();
+        queryBuilder.SetTable("Ventas");
+        queryBuilder.AddColumn("Id");
+        queryBuilder.AddColumn("Total");
+        queryBuilder.AddColumn("Fecha");
+        queryBuilder.AddWhere("Total > 10000");
     }
 }

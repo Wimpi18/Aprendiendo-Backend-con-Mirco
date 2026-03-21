@@ -1,3 +1,7 @@
 ﻿var director = new SqlReportDirector();
-Console.Write(director.BuildActiveUsersReport().CommandText);
-Console.Write(director.BuildHighValueSalesReport().CommandText);
+var builder1 = new SqlQueryBuilder();
+var builder2 = new SqlQueryBuilder();
+director.BuildActiveUsersReport(builder1);
+director.BuildActiveUsersReport(builder2);
+Console.Write(builder1.Build().CommandText);
+Console.Write(builder2.Build().CommandText);
