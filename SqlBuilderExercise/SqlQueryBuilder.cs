@@ -1,43 +1,43 @@
 ﻿public class SqlQueryBuilder
 {
     SqlQuery sqlQuery;
-    string[] query;
 
-    public SqlQueryBuilder()
-    {
-        query = new string[3];
-    }
+    string _table = "",
+        _columns = "",
+        _where = "";
+
+    public SqlQueryBuilder() { }
 
     public void SetTable(string tableName)
     {
-        if (string.IsNullOrEmpty(query[0]))
-            query[0] = tableName;
+        if (string.IsNullOrEmpty(_table))
+            _table = tableName;
         else
-            query[0] += $", {tableName}";
+            _table += $", {tableName}";
     }
 
     public void AddColumn(string columnName)
     {
-        if (string.IsNullOrEmpty(query[2]))
-            query[1] = columnName;
+        if (string.IsNullOrEmpty(_columns))
+            _columns = columnName;
         else
-            query[1] += $", {columnName}";
+            _columns += $", {columnName}";
     }
 
     public void AddWhere(string condition)
     {
-        if (string.IsNullOrEmpty(query[2]))
-            query[2] = condition;
+        if (string.IsNullOrEmpty(_where))
+            _where = condition;
         else
-            query[2] += $" AND {condition}";
+            _where += $" AND {condition}";
     }
 
     public SqlQuery Build()
     {
         string result = "";
-        result += string.IsNullOrEmpty(query[1]) ? "SELECT *" : "SELECT " + query[1] + "\n";
-        result += "FROM " + query[0] + "\n";
-        result += string.IsNullOrEmpty(query[2]) ? "" : "WHERE " + query[2];
+        result += string.IsNullOrEmpty(_columns) ? "SELECT *" : "SELECT " + _columns + "\n";
+        result += "FROM " + _table + "\n";
+        result += string.IsNullOrEmpty(_where) ? "" : "WHERE " + _where;
 
         sqlQuery = new SqlQuery(result);
         return sqlQuery;
