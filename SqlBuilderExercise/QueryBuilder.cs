@@ -1,7 +1,8 @@
 public interface QueryBuilder
 {
-    public void SetTable(string tableName);
-    public void AddColumn(string columnName);
-    public void AddWhere(string condition);
+    public QueryBuilder SetTable(string tableName);
+    public QueryBuilder AddColumn(string columnName);
+    public QueryBuilder AddWhere(string condition);
+    public void Reset();
     public SqlQuery Build();
 }
