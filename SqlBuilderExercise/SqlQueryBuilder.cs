@@ -1,7 +1,5 @@
 ﻿public class SqlQueryBuilder
 {
-    SqlQuery sqlQuery;
-
     string _table = "",
         _columns = "",
         _where = "";
@@ -38,8 +36,6 @@
         result += string.IsNullOrEmpty(_columns) ? "SELECT *" : "SELECT " + _columns + "\n";
         result += "FROM " + _table + "\n";
         result += string.IsNullOrEmpty(_where) ? "" : "WHERE " + _where;
-
-        sqlQuery = new SqlQuery(result);
-        return sqlQuery;
+        return new SqlQuery(result);
     }
 }
