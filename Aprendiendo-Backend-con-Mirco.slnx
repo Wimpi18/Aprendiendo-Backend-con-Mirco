@@ -3,4 +3,5 @@
   <Project Path="Loan-Bank-Facade/Loan-Bank-Facade.csproj" />
   <Project Path="RegisterStrategy/RegisterStrategy.csproj" />
   <Project Path="Singleton-Logger/Singleton-Logger.csproj" />
+  <Project Path="SqlBuilderExercise/SqlBuilderExercise.csproj" />
 </Solution>
