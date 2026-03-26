@@ -1,25 +1,20 @@
 public class Insignia : IScoutProduct
 {
     public string Name;
-    private readonly decimal BasePrice;
-    private readonly string Color;
+    public decimal BasePrice;
+    public string Color;
+    public Provider Provider;
 
-    public Insignia(string name, decimal basePrice, string color)
+    public Insignia(string name, decimal basePrice, string color, Provider provider)
     {
         this.Name = name;
         this.BasePrice = basePrice;
         this.Color = color;
-    }
-
-    private Insignia(Insignia Insignia)
-    {
-        this.Name = Insignia.Name;
-        this.BasePrice = Insignia.BasePrice;
-        this.Color = Insignia.Color;
+        this.Provider = provider;
     }
 
     public IScoutProduct Clonar()
     {
-        return new Insignia(this);
+        return (Insignia)this.MemberwiseClone();
     }
 }
