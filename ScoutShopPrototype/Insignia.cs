@@ -15,6 +15,8 @@ public class Insignia : IScoutProduct
 
     public IScoutProduct Clonar()
     {
-        return (Insignia)this.MemberwiseClone();
+        Insignia insignia = (Insignia)this.MemberwiseClone();
+        insignia.Provider = new Provider(insignia.Provider.Name);
+        return insignia;
     }
 }
