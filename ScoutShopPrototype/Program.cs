@@ -1,6 +1,13 @@
 ﻿Provider provider = new Provider("ASB");
 CatalogManager catalogManager = new CatalogManager();
-Insignia insignia1 = new Insignia("Fuego y Campamento", 5.52m, "Azul", provider);
+Insignia insignia1 = new Insignia(
+    "Fuego y Campamento",
+    5.52m,
+    "Azul",
+    provider,
+    ["Plancacho", "Bordes negros"],
+    new Category("Campamento")
+);
 catalogManager.RegisterProduct("Insignia Primer Campamento", insignia1);
 
 Insignia insignia2 = (Insignia)catalogManager.GetClone("Insignia Primer Campamento");
