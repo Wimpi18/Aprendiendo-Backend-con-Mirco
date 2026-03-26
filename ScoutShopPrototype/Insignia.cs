@@ -28,11 +28,10 @@ public class Insignia : IScoutProduct
 
     public IScoutProduct Clonar()
     {
-        string Serialize = JsonSerializer.Serialize(this);
-        Insignia? Insignia = JsonSerializer.Deserialize<Insignia>(Serialize);
-        if (Insignia == null)
-            throw new Exception();
-
-        return Insignia;
+        Insignia insignia = (Insignia)this.MemberwiseClone();
+        insignia.Provider = (Provider)this.Provider.Clonar();
+        insignia.Requirements = [.. Requirements];
+        insignia.Category = (Category)this.Category.Clonar();
+        return insignia;
     }
 }
