@@ -5,3 +5,9 @@ services.AddSingleton<INotifier, CloudSmsAdapter>(provider => new CloudSmsAdapte
     new CloudSmsService(),
     "555-1234"
 ));
+services.AddSingleton<OrderService>();
+
+var serviceProvider = services.BuildServiceProvider();
+var orderService = serviceProvider.GetService<OrderService>();
+
+orderService.CompleteOrder(10);
