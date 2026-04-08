@@ -4,5 +4,6 @@
   <Project Path="RegisterStrategy/RegisterStrategy.csproj" />
   <Project Path="ScoutShopPrototype/ScoutShopPrototype.csproj" />
   <Project Path="Singleton-Logger/Singleton-Logger.csproj" />
+  <Project Path="SMSAdapter/SMSAdapter.csproj" />
   <Project Path="SqlBuilderExercise/SqlBuilderExercise.csproj" />
 </Solution>
