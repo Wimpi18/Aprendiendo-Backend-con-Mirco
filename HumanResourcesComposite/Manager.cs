@@ -3,13 +3,12 @@ public class Manager : IEmployee
     public string Name { get; private set; }
     public decimal Salary { get; private set; }
 
-    public List<IEmployee> Employees { get; private set; }
+    public List<IEmployee> Employees = new List<IEmployee>();
 
-    public Manager(string name, decimal salary, List<IEmployee> employees)
+    public Manager(string name, decimal salary)
     {
         Name = name;
         Salary = salary;
-        Employees = employees;
     }
 
     public void AddEmployee(IEmployee employee)
@@ -17,7 +16,7 @@ public class Manager : IEmployee
         Employees.Add(employee);
     }
 
-    public void QuitEmployee(IEmployee employee)
+    public void RemoveEmployee(IEmployee employee)
     {
         Employees.Remove(employee);
     }
