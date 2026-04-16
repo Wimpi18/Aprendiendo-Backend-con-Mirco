@@ -1,3 +1,4 @@
+[ProcessorCategory("Formatting")]
 public class UpperCaseDecorator : DataProcessorDecorator
 {
     public UpperCaseDecorator(IDataProcessor processor)

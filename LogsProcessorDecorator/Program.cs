@@ -1,7 +1,9 @@
-﻿IDataProcessor processor = new RawDataProcessor();
-processor = new TimestampDecorator(
-    new UpperCaseDecorator(new CensorshipDecorator(processor, ["overheating", "other"]))
-);
+﻿using System.Reflection;
 
-string rawData = "alerta: sensor de temperatura overheating";
-Console.WriteLine($"Result: {processor.Process(rawData)}");
+IDataProcessor processor = new RawDataProcessor();
+IDataProcessor miDecorator = new UpperCaseDecorator(processor);
+Type decoratorType = miDecorator.GetType();
+var attribute = decoratorType.GetCustomAttribute<ProcessorCategoryAttribute>();
+
+if (attribute != null)
+    Console.WriteLine(attribute.Category);
