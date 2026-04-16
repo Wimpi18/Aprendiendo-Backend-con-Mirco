@@ -2,6 +2,7 @@
   <Project Path="Chain-of-Responsability-Handler-Levels/Chain-of-Responsability-Handler-Levels.csproj" />
   <Project Path="HumanResourcesComposite/HumanResourcesComposite.csproj" />
   <Project Path="Loan-Bank-Facade/Loan-Bank-Facade.csproj" />
+  <Project Path="LogsProcessorDecorator/LogsProcessorDecorator.csproj" />
   <Project Path="PayBridge/PayBridge.csproj" />
   <Project Path="RegisterStrategy/RegisterStrategy.csproj" />
   <Project Path="ScoutShopPrototype/ScoutShopPrototype.csproj" />
