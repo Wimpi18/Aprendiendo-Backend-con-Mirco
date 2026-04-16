@@ -13,4 +13,9 @@ public class Developer : IEmployee
     {
         Console.WriteLine($"- Developer: {Name}, Salary: ${Salary}");
     }
+
+    public decimal CalculateTotalBudget()
+    {
+        return Salary;
+    }
 }
