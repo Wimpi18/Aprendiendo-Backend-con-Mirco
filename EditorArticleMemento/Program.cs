@@ -9,6 +9,6 @@ article.Title = "New Title";
 article.Show();
 
 // 3. ¿Cómo usarías el método 'Pop' de history y el 'Restore' de article para volver atrás?
-// TODO: Implementar el "Undo"
+article.Restore(history.Pop());
 
 article.Show();
