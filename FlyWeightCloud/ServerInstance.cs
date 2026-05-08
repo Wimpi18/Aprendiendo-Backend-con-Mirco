@@ -1,9 +1,9 @@
 public class ServerInstance
 {
     private readonly string _ipAddress;
-    private readonly ServerConfiguration _config;
+    private readonly ServerConfigFactory.ServerConfiguration _config;
 
-    public ServerInstance(string ipAddress, ServerConfiguration config)
+    public ServerInstance(string ipAddress, ServerConfigFactory.ServerConfiguration config)
     {
         _ipAddress = ipAddress;
         _config = config;

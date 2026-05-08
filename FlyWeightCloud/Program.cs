@@ -9,7 +9,10 @@ for (int i = 1; i <= 1000; i++)
     double cpuUsage = new Random().NextDouble() * 100;
 
     // 1. Obtener la configuración compartida desde la fábrica usando 'os' y 'region'
-    ServerConfiguration serverConfiguration = factory.GetConfiguration(os, region);
+    ServerConfigFactory.ServerConfiguration serverConfiguration = factory.GetConfiguration(
+        os,
+        region
+    );
 
     // 2. Crear la 'ServerInstance' pasando la configuración obtenida
     ServerInstance serverInstance = new ServerInstance(ipAddress, serverConfiguration);
