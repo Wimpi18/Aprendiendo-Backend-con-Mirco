@@ -1,15 +1,17 @@
+using System.Collections.Concurrent;
+
 public class ServerConfigFactory
 {
-    Dictionary<string, ServerConfiguration> ServerConfigurations = [];
+    private readonly ConcurrentDictionary<string, ServerConfiguration> ServerConfigurations = [];
 
     public ServerConfiguration GetConfiguration(string os, string region)
     {
         string key = $"{os}+{region}";
-        if (ServerConfigurations.ContainsKey((key)))
-            return ServerConfigurations[key];
-        else
-            ServerConfigurations.Add(key, new ServerConfiguration(os, region));
-
-        return ServerConfigurations[key];
+        ValueTuple<string, string> value = (os, region);
+        return ServerConfigurations.GetOrAdd(
+            key,
+            (key, arg) => new ServerConfiguration(arg.Item1, arg.Item2),
+            value
+        );
     }
 }
