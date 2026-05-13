@@ -1,6 +1,7 @@
 <Solution>
   <Project Path="Chain-of-Responsability-Handler-Levels/Chain-of-Responsability-Handler-Levels.csproj" />
   <Project Path="EditorArticleMemento/EditorArticleMemento.csproj" />
+  <Project Path="FintechProxy/FintechProxy.csproj" />
   <Project Path="FlyWeightCloud/FlyWeightCloud.csproj" />
   <Project Path="HumanResourcesComposite/HumanResourcesComposite.csproj" />
   <Project Path="Loan-Bank-Facade/Loan-Bank-Facade.csproj" />
