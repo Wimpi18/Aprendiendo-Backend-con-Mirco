@@ -3,15 +3,15 @@ using System.Collections.Concurrent;
 public class CachedReportProxy : IReportService
 {
     ConcurrentDictionary<int, string> LegacyReportsCache = [];
-    IReportService LegacyReportService;
+    IReportService ReportService;
 
-    public CachedReportProxy(IReportService legacyReportService)
+    public CachedReportProxy(IReportService reportService)
     {
-        LegacyReportService = legacyReportService;
+        ReportService = reportService;
     }
 
     public string GetReportData(int reportId)
     {
-        return LegacyReportsCache.GetOrAdd(reportId, LegacyReportService.GetReportData(reportId));
+        return LegacyReportsCache.GetOrAdd(reportId, ReportService.GetReportData(reportId));
     }
 }

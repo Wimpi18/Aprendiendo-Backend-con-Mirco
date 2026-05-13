@@ -1,18 +1,18 @@
 public class SecurityReportProxy : IReportService
 {
-    IReportService CachedReportProxy;
+    IReportService ReportService;
     IUserProvider UserProvider;
 
-    public SecurityReportProxy(IUserProvider user, IReportService cachedReportProxy)
+    public SecurityReportProxy(IUserProvider user, IReportService reportService)
     {
         UserProvider = user;
-        CachedReportProxy = cachedReportProxy;
+        ReportService = reportService;
     }
 
     public string GetReportData(int reportId)
     {
         if (UserProvider.GetCurrentUser().Role != "Admin" && reportId > 100)
             throw new UnauthorizedAccessException();
-        return CachedReportProxy.GetReportData(reportId);
+        return ReportService.GetReportData(reportId);
     }
 }
