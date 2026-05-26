@@ -1,8 +1,24 @@
 ﻿BankAccount bankAccount = new BankAccount("6495824", 0m);
-DepositCommand depositCommand1 = new DepositCommand(bankAccount, 100m);
-DepositCommand depositCommand2 = new DepositCommand(bankAccount, 10m);
-DepositCommand depositCommand3 = new DepositCommand(bankAccount, 20m);
-DepositCommand depositCommand4 = new DepositCommand(bankAccount, 1000m);
+
+var depositCommand1 = new ActionCommand(
+    () => bankAccount.Deposit(100m),
+    () => bankAccount.Withdraw(100m)
+);
+
+var depositCommand2 = new ActionCommand(
+    () => bankAccount.Deposit(10m),
+    () => bankAccount.Withdraw(10m)
+);
+
+var depositCommand3 = new ActionCommand(
+    () => bankAccount.Deposit(20m),
+    () => bankAccount.Withdraw(20m)
+);
+
+var depositCommand4 = new ActionCommand(
+    () => bankAccount.Deposit(1000m),
+    () => bankAccount.Withdraw(1000m)
+);
 
 TransactionManager transactionManager = new TransactionManager();
 transactionManager.ExecuteCommand(depositCommand1);
