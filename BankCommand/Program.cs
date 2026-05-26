@@ -1,21 +1,21 @@
 ﻿BankAccount bankAccount = new BankAccount("6495824", 0m);
 
-var depositCommand1 = new ActionCommand(
+ActionCommand depositCommand1 = new ActionCommand(
     () => bankAccount.Deposit(100m),
     () => bankAccount.Withdraw(100m)
 );
 
-var depositCommand2 = new ActionCommand(
+ActionCommand depositCommand2 = new ActionCommand(
     () => bankAccount.Deposit(10m),
     () => bankAccount.Withdraw(10m)
 );
 
-var depositCommand3 = new ActionCommand(
+ActionCommand depositCommand3 = new ActionCommand(
     () => bankAccount.Deposit(20m),
     () => bankAccount.Withdraw(20m)
 );
 
-var depositCommand4 = new ActionCommand(
+ActionCommand depositCommand4 = new ActionCommand(
     () => bankAccount.Deposit(1000m),
     () => bankAccount.Withdraw(1000m)
 );
