@@ -10,6 +10,7 @@
   <Project Path="NotificationsIterator/NotificationsIterator.csproj" />
   <Project Path="PayBridge/PayBridge.csproj" />
   <Project Path="RegisterStrategy/RegisterStrategy.csproj" />
+  <Project Path="RegistrationMediator/RegistrationMediator.csproj" />
   <Project Path="ScoutShopPrototype/ScoutShopPrototype.csproj" />
   <Project Path="Singleton-Logger/Singleton-Logger.csproj" />
   <Project Path="SMSAdapter/SMSAdapter.csproj" />
