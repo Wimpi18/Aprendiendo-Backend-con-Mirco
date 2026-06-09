@@ -1,11 +1,9 @@
 ﻿NotificationBatch batch = new NotificationBatch();
-batch.AddNotification(new Notification { Message = "Welcome!", Channel = "Email" });
-batch.AddNotification(new Notification { Message = "Security Code", Channel = "SMS" });
+batch.AddNotification(new Notification { Message = "Microservice Started", Channel = "Slack" });
+batch.AddNotification(new Notification { Message = "App Error Logged", Channel = "Email" });
 
-INotificationIterator iterator = batch.GetIterator();
-
-while (iterator.HasMore())
+IEnumerator<Notification> notification = batch.GetEnumerator();
+while (notification.MoveNext())
 {
-    Notification? notification = iterator.GetNext();
-    Console.WriteLine($"{notification?.Message}, {notification?.Channel}");
+    Console.WriteLine($"{notification.Current.Message}, {notification.Current.Channel}");
 }

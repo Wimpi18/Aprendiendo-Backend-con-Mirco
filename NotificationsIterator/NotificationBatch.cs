@@ -1,6 +1,6 @@
 using System.Collections;
 
-public class NotificationBatch : INotificationCollection
+public class NotificationBatch : IEnumerable<Notification>
 {
     private List<Notification> _notifications = new List<Notification>();
 
@@ -9,8 +9,16 @@ public class NotificationBatch : INotificationCollection
         _notifications.Add(notification);
     }
 
-    public INotificationIterator GetIterator()
+    public IEnumerator<Notification> GetEnumerator()
     {
-        return new NotificationIterator(_notifications);
+        foreach (var notification in _notifications)
+        {
+            yield return notification;
+        }
+    }
+
+    IEnumerator IEnumerable.GetEnumerator()
+    {
+        return GetEnumerator();
     }
 }
