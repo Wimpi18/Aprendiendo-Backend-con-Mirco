@@ -1,6 +1,6 @@
-public class InventoryService : IObserver
+public class InventoryService
 {
-    public void Update(Order? order)
+    public void Update(object? sender, Order order)
     {
         if (order is null)
             return;

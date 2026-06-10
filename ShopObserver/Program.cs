@@ -2,8 +2,8 @@
 InventoryService inventoryService = new();
 NotificationService notificationService = new();
 
-Order order = new();
+orderManager.OrderCreated += inventoryService.Update;
+orderManager.OrderCreated += notificationService.Update;
 
-orderManager.Attach(inventoryService);
-orderManager.Attach(notificationService);
+Order order = new() { Id = 101, CustomerEmail = "cliente@email.com" };
 orderManager.CreateOrder(order);
