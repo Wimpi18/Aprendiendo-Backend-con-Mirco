@@ -12,6 +12,7 @@
   <Project Path="RegisterStrategy/RegisterStrategy.csproj" />
   <Project Path="RegistrationMediator/RegistrationMediator.csproj" />
   <Project Path="ScoutShopPrototype/ScoutShopPrototype.csproj" />
+  <Project Path="ShopObserver/ShopObserver.csproj" />
   <Project Path="Singleton-Logger/Singleton-Logger.csproj" />
   <Project Path="SMSAdapter/SMSAdapter.csproj" />
   <Project Path="SqlBuilderExercise/SqlBuilderExercise.csproj" />
