@@ -8,6 +8,7 @@
   <Project Path="Loan-Bank-Facade/Loan-Bank-Facade.csproj" />
   <Project Path="LogsProcessorDecorator/LogsProcessorDecorator.csproj" />
   <Project Path="NotificationsIterator/NotificationsIterator.csproj" />
+  <Project Path="OrderStates/OrderStates.csproj" />
   <Project Path="PayBridge/PayBridge.csproj" />
   <Project Path="RegisterStrategy/RegisterStrategy.csproj" />
   <Project Path="RegistrationMediator/RegistrationMediator.csproj" />
