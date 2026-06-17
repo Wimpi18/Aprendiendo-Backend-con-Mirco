@@ -1,12 +1,7 @@
-public class PaidOrderState : IState
+public class PaidOrderState : OrderState
 {
-    public void Cancelar(Order order)
+    public override void Cancelar(Order order)
     {
         order.TransitionTo(new NewOrderState());
-    }
-
-    public void ProcesarPago(Order order)
-    {
-        throw new Exception("El pedido ya fue pagado con anterioridad");
     }
 }
